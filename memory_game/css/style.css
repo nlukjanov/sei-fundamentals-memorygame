@@ -63,8 +63,49 @@ main {
   margin: 35px auto;
 }
 
+section {
+  margin-bottom: 20px;
+}
+
+.game-score {
+  text-decoration: none;
+  background-color: #00a6b3;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 20px 80px;
+  text-align: left;
+  float: left;
+}
+
+.board {
+  clear: both;
+}
+
+.game-reset {
+  text-decoration: none;
+  background-color: #00a6b3;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 20px 80px;
+  float: right;
+}
+
+.game-reset span {
+  border-bottom: 2px solid transparent;
+}
+
+button span:hover {
+  border-color: white;
+}
+
 img {
-  margin: 40px 8px;
+  margin: 0px 6px 8px 6px;
 }
 
 footer {
