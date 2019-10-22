@@ -65,9 +65,12 @@ main {
 
 section {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.game-score {
+.game-details {
   text-decoration: none;
   background-color: #00a6b3;
   color: #ffffff;
@@ -75,47 +78,18 @@ section {
   letter-spacing: 1px;
   font-weight: 600;
   font-size: 18px;
-  /* padding: 20px 80px; */
-  text-align: left;
-  display: inline-block;
   width: 275px;
   height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .board {
   clear: both;
 }
 
-.notification {
-  text-decoration: none;
-  background-color: #00a6b3;
-  color: #ffffff;
-  font-family: "Raleway", sans-serif;
-  letter-spacing: 1px;
-  font-weight: 600;
-  font-size: 18px;
-  /* padding: 20px 80px; */
-  text-align: left;
-  display: inline-block;
-  width: 275px;
-  height: 65px;
-}
-
-.game-reset {
-  text-decoration: none;
-  background-color: #00a6b3;
-  color: #ffffff;
-  font-family: "Raleway", sans-serif;
-  letter-spacing: 1px;
-  font-weight: 600;
-  font-size: 18px;
-  /* padding: 20px 80px; */
-  display: inline-block;
-  width: 275px;
-  height: 65px;
-}
-
-.game-reset span {
+.button-hover {
   border-bottom: 2px solid transparent;
 }
 
