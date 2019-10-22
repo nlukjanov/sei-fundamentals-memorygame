@@ -63,11 +63,12 @@ main {
   margin: 35px auto;
 }
 
-section {
+.container {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #00a6b3;
 }
 
 .game-details {
@@ -83,6 +84,10 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#player-score {
+  margin-left: 10px;
 }
 
 .board {
