@@ -75,13 +75,30 @@ section {
   letter-spacing: 1px;
   font-weight: 600;
   font-size: 18px;
-  padding: 20px 80px;
+  /* padding: 20px 80px; */
   text-align: left;
-  float: left;
+  display: inline-block;
+  width: 275px;
+  height: 65px;
 }
 
 .board {
   clear: both;
+}
+
+.notification {
+  text-decoration: none;
+  background-color: #00a6b3;
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 18px;
+  /* padding: 20px 80px; */
+  text-align: left;
+  display: inline-block;
+  width: 275px;
+  height: 65px;
 }
 
 .game-reset {
@@ -92,15 +109,17 @@ section {
   letter-spacing: 1px;
   font-weight: 600;
   font-size: 18px;
-  padding: 20px 80px;
-  float: right;
+  /* padding: 20px 80px; */
+  display: inline-block;
+  width: 275px;
+  height: 65px;
 }
 
 .game-reset span {
   border-bottom: 2px solid transparent;
 }
 
-button span:hover {
+div span:hover {
   border-color: white;
 }
 
