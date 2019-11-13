@@ -31,13 +31,14 @@ function shuffle(array) {
 shuffle(cards);
 
 var cardsInPlay = [];
-
+var gameBoard = document.getElementById('game-board');
 function createBoard() {
+  gameBoard.style.pointerEvents = 'auto';
   for (let i = 0; i < cards.length; i++) {
     var cardElement = document.createElement('img');
     cardElement.setAttribute('src', 'images/cards/blue_back.svg');
     cardElement.setAttribute('data-id', i);
-    var gameBoard = document.getElementById('game-board');
+
     gameBoard.appendChild(cardElement);
     cardElement.addEventListener('click', flipCard);
   }
@@ -47,8 +48,10 @@ var resetButton = document.getElementById('reset-button');
 resetButton.addEventListener('click', resetGame);
 
 var score = 0;
+var numberOfTries = 0;
 var notification = document.getElementById('notification');
 var playerScore = document.getElementById('player-score');
+var displayNumberOfTries = document.getElementById('number-of-tries');
 var node = document.getElementById('game-board');
 
 function newBoard() {
@@ -64,7 +67,9 @@ function notificationReset() {
 
 function resetGame() {
   score = 0;
+  var numberOfTries = 0;
   playerScore.innerHTML = score;
+  displayNumberOfTries.innerHTML = numberOfTries;
   notificationReset();
   shuffleDeck();
   cards = [deck[0], deck[1], deck[2], deck[3], deck[0], deck[1], deck[2], deck[3]];
@@ -79,8 +84,10 @@ function flipCard() {
   this.setAttribute('src', cards[cardId].cardImage);
 
   function checkForMatch() {
-    
     if (cardsInPlay.length === 2) {
+      gameBoard.style.pointerEvents = 'none';
+      numberOfTries = numberOfTries + 1;
+      displayNumberOfTries.innerHTML = numberOfTries;
       if (cardsInPlay[0].rank === cardsInPlay[1].rank && cardsInPlay[0].suit === cardsInPlay[1].suit) {
         notification.style.color = "green";
         notification.innerHTML = 'It is a match!';
