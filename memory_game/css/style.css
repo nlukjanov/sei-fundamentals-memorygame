@@ -104,6 +104,8 @@ div span:hover {
 
 img {
   margin: 0px 6px 8px 6px;
+  height: 300px;
+  width: 200px;
 }
 
 footer {
