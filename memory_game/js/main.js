@@ -67,7 +67,7 @@ function notificationReset() {
 
 function resetGame() {
   score = 0;
-  var numberOfTries = 0;
+  numberOfTries = 0;
   playerScore.innerHTML = score;
   displayNumberOfTries.innerHTML = numberOfTries;
   notificationReset();
