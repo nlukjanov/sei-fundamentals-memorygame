@@ -1,49 +1,41 @@
-var cards = [{
-  "rank": "queen",
-  "suit": "hearts",
-  "cardImage": "images/queen-of-hearts.png"
-},
-{
-  "rank": "queen",
-  "suit": "diamonds",
-  "cardImage": "images/queen-of-diamonds.png"
-},
-{
-  "rank": "king",
-  "suit": "hearts",
-  "cardImage": "images/king-of-hearts.png"
-},
-{
-  "rank": "king",
-  "suit": "diamonds",
-  "cardImage": "images/king-of-diamonds.png"
-},
-{
-  "rank": "queen",
-  "suit": "hearts",
-  "cardImage": "images/queen-of-hearts.png"
-},
-{
-  "rank": "queen",
-  "suit": "diamonds",
-  "cardImage": "images/queen-of-diamonds.png"
-},
-{
-  "rank": "king",
-  "suit": "hearts",
-  "cardImage": "images/king-of-hearts.png"
-},
-{
-  "rank": "king",
-  "suit": "diamonds",
-  "cardImage": "images/king-of-diamonds.png"
-}];
+var deck = [];
+
+const suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
+const values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+
+for (let suit in suits) {
+  for (let value in values) {
+    deck.push({
+      rank: `${values[value]}`,
+      suit: `${suits[suit]}`,
+      cardImage: `images/cards/${values[value]}${suits[suit][0]}.svg`
+    });
+  }
+};
+
+function shuffleDeck() {
+  let m = deck.length, i;
+
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    [deck[m], deck[i]] = [deck[i], deck[m]];
+  }
+  return deck;
+}
+shuffleDeck();
+
+var cards = [deck[0], deck[1], deck[2], deck[3], deck[0], deck[1], deck[2], deck[3]];
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+shuffle(cards);
+
 var cardsInPlay = [];
 
 function createBoard() {
   for (let i = 0; i < cards.length; i++) {
     var cardElement = document.createElement('img');
-    cardElement.setAttribute('src', 'images/back.png');
+    cardElement.setAttribute('src', 'images/cards/blue_back.svg');
     cardElement.setAttribute('data-id', i);
     var gameBoard = document.getElementById('game-board');
     gameBoard.appendChild(cardElement);
@@ -74,6 +66,9 @@ function resetGame() {
   score = 0;
   playerScore.innerHTML = score;
   notificationReset();
+  shuffleDeck();
+  cards = [deck[0], deck[1], deck[2], deck[3], deck[0], deck[1], deck[2], deck[3]];
+  shuffle(cards);
   newBoard();
 }
 
@@ -86,30 +81,17 @@ function flipCard() {
   function checkForMatch() {
     
     if (cardsInPlay.length === 2) {
-      if (cardsInPlay[0].rank === cardsInPlay[1].rank) {
+      if (cardsInPlay[0].rank === cardsInPlay[1].rank && cardsInPlay[0].suit === cardsInPlay[1].suit) {
         notification.style.color = "green";
         notification.innerHTML = 'It is a match!';
         score = score + 1;
         playerScore.innerHTML = (score);
-        var cardsToFlipBack = document.querySelectorAll('img');
-        setTimeout(function() {
-          for (let i = 0; i < cardsToFlipBack.length; i++) {
-            cardsToFlipBack[i].setAttribute('src', 'images/back.png');
-            notificationReset();
-          };
-        }, 1000);
       } else {
         notification.style.color = "red";
         notification.innerHTML = 'Try again!';
-        var cardsToFlipBack = document.querySelectorAll('img');
-        setTimeout(function() {
-          for (let i = 0; i < cardsToFlipBack.length; i++) {
-            cardsToFlipBack[i].setAttribute('src', 'images/back.png');
-            notificationReset();
-          };
-        }, 1000);
       }
       setTimeout(newBoard, 1000);
+      // shuffle(cards); // uncomment to make it really hard to win :))
     }
     
   }
