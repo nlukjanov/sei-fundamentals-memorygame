@@ -36,7 +36,7 @@ function createBoard() {
   gameBoard.style.pointerEvents = 'auto';
   for (let i = 0; i < cards.length; i++) {
     var cardElement = document.createElement('img');
-    cardElement.setAttribute('src', 'images/cards/blue_back.svg');
+    cardElement.setAttribute('src', 'images/back.png');
     cardElement.setAttribute('data-id', i);
 
     gameBoard.appendChild(cardElement);
